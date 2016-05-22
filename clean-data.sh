@@ -1,6 +1,6 @@
 #!/bin/bash
 #-------------------------------------------------------------#
-# Remove all like not having least 3 comma delimiters
+# Remove all lines not having least 3 comma delimiters
 # usage: 
 # nohup ./clean-data.sh data/Officers.csv >> /dev/null 2>&1 &
 #-------------------------------------------------------------#
