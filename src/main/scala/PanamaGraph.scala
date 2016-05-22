@@ -50,11 +50,12 @@ object PanamaGraph {
         LIMIT 20
         """
     
-    //sqlContext.sql( SQL ).save("/tmp/count1", "com.databricks.spark.csv")
 
     val results = sqlContext.sql( SQL )
     results.map(t => "name=" + t(0) + "\ncount=" + t(1) + "\n" ).collect().foreach(println) 
 
+    // Save results int other formats
+    //sqlContext.sql( SQL ).save("/tmp/count1", "com.databricks.spark.csv")
     //results.saveAsParquetFile("/tmp/parquet")
     //val parquetFile = sqlContext.parquetFile("/tmp/parquet")
 
