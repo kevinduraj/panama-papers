@@ -1,6 +1,7 @@
 import org.apache.spark._
 import org.apache.spark.graphx._
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql._
 import org.apache.log4j.{Level, Logger}
 
 //class Graph[VD, ED] {
@@ -26,14 +27,41 @@ object PanamaGraph {
     // val threshold = args(1).toInt
     // val tokenized = sc.textFile(args(0)).flatMap(_.split(" "))
 
-    val inputFile = args(0)
-    val outputDir = args(1)
-    println("Input File: " + inputFile)
-    println("Output Dir: " + outputDir)
+    val inputFile = args(0); println("Input File: " + inputFile)
 
     //social_graph(inputFile, outputDir)
     //student_graph(inputFile, outputDir)
-    users_graph(inputFile, outputDir)
+    //users_graph(inputFile, outputDir)
+    officers_analysis()
+
+  }
+  /*----------------------------------------------------------------------------*/
+  //                         Officers Analysis 
+  /*----------------------------------------------------------------------------*/
+  def officers_analysis() {
+
+    println("********** Officers Analysis ************")
+
+    val sc = new SparkContext(new SparkConf().setAppName("PanamaGraph"))
+    val sqlContext = new SQLContext(sc)
+
+    val textFile = sc.textFile("data/Officers.csv")
+    
+
+    val counts = textFile.flatMap(line => line.split(","))
+                 .map(word => (word, 1))
+                 .reduceByKey(_ + _)
+
+    counts.foreach(println)
+
+    //val df1 = sqlContext.read.format("com.databricks.spark.avro").load(avroFile).registerTempTable("officers")
+    //sqlContext.sql(
+    //    """
+    //    SELECT name, COUNT(*) AS times
+    //    FROM officers
+    //    GROUP BY name 
+    //    ORDER BY times DESC
+    //    """).save("/output/inames.csv", "com.databricks.spark.csv")
 
   }
 

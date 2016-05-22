@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
 <ivy-report version="1.0">
 	<info
-		organisation="spark-graph"
-		module="spark-graph_2.10"
+		organisation="panamagraph"
+		module="panamagraph_2.10"
 		revision="1.0"
-		conf="provided"
+		conf="optional"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20160522143413"/>
+		date="20160522151227"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>
