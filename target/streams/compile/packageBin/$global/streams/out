@@ -1,0 +1,25 @@
+[0m[[0minfo[0m] [0mPackaging /home/nootrino/panama-papers/target/scala-2.10/spark-graph_2.10-1.0.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$User$3.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$User$3.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$User$4$.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$User$4$.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$$anonfun$student_graph$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$$anonfun$student_graph$1.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$$anonfun$users_graph$3.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$$anonfun$users_graph$3.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$$anonfun$social_graph$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$$anonfun$social_graph$1.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$$anonfun$users_graph$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$$anonfun$users_graph$1.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$$anonfun$users_graph$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$$anonfun$users_graph$2.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$$anonfun$social_graph$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$$anonfun$social_graph$2.class[0m
+[0m[[0mdebug[0m] [0m	PanamaGraph$.class[0m
+[0m[[0mdebug[0m] [0m	  /home/nootrino/panama-papers/target/scala-2.10/classes/PanamaGraph$.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
