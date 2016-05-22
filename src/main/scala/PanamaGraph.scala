@@ -41,7 +41,17 @@ object PanamaGraph {
             .map(col => Person(col(0), col(1)))
             .toDF()
     people.registerTempTable("people")
+   
+    val SQL = """
+        SELECT name, COUNT(*) AS times
+        FROM people 
+        GROUP BY name 
+        ORDER BY times DESC
+        """
     
+    sqlContext.sql( SQL ).save("/tmp/count1", "com.databricks.spark.csv")
+
+/*        
     sqlContext.sql(
         """
         SELECT name, COUNT(*) AS times
@@ -49,7 +59,8 @@ object PanamaGraph {
         GROUP BY name 
         ORDER BY times DESC
         """
-        ).save("/tmp/names.csv", "com.databricks.spark.csv")
+        ).save("/tmp/count", "com.databricks.spark.csv")
+*/
 
   }
 
