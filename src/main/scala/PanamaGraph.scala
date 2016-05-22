@@ -47,20 +47,17 @@ object PanamaGraph {
         FROM people 
         GROUP BY name 
         ORDER BY times DESC
+        LIMIT 20
         """
     
-    sqlContext.sql( SQL ).save("/tmp/count1", "com.databricks.spark.csv")
+    //sqlContext.sql( SQL ).save("/tmp/count1", "com.databricks.spark.csv")
 
-/*        
-    sqlContext.sql(
-        """
-        SELECT name, COUNT(*) AS times
-        FROM people 
-        GROUP BY name 
-        ORDER BY times DESC
-        """
-        ).save("/tmp/count", "com.databricks.spark.csv")
-*/
+    val results = sqlContext.sql( SQL )
+    results.map(t => "name=" + t(0) + "\ncount=" + t(1) + "\n" ).collect().foreach(println) 
+
+    //results.saveAsParquetFile("/tmp/parquet")
+    //val parquetFile = sqlContext.parquetFile("/tmp/parquet")
+
 
   }
 
