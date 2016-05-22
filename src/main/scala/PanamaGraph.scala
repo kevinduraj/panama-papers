@@ -44,7 +44,7 @@ object PanamaGraph {
     */
 
     //val people = sc.textFile("/home/nootrino/panama-papers/data/Officers.csv")
-    val people = sc.textFile("/home/nootrino/panama-papers/data/temp.csv")
+    val people = sc.textFile("/home/nootrino/panama-papers/data/Officers.csv.clean")
             .map(_.split(","))
             .map(col => Person(col(0), col(1)))
             .toDF()
