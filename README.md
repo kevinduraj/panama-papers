@@ -1,6 +1,13 @@
 Pananma Papers Data Analysis
 ============================
 
+
+###Cleaning Data
+```
+sed 's/[^,]//g' data/Officers.csv | awk '{ print $_ length }'
+```
+
+
 ###References:
 
 * [https://spark.apache.org/docs/0.9.0/graphx-programming-guide.html](https://spark.apache.org/docs/0.9.0/graphx-programming-guide.html)
