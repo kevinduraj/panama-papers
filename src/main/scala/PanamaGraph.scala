@@ -19,17 +19,44 @@ object PanamaGraph {
   /*----------------------------------------------------------------------------*/
   def main(args: Array[String]) {
 
-    //social_graph(inputFile, outputDir)
-    //student_graph(inputFile, outputDir)
-    //users_graph(inputFile, outputDir)
-    officers_analysis()
+    //find_officers()
+    count_officers()
 
   }
   /*----------------------------------------------------------------------------*/
   //                         Officers Analysis 
   // https://spark.apache.org/docs/1.3.1/sql-programming-guide.html
   /*----------------------------------------------------------------------------*/
-  def officers_analysis() {
+  def count_officers() {
+
+    println("********** Officers Analysis ************")
+
+    val sc = new SparkContext(new SparkConf().setAppName("PanamaGraph"))
+    val sqlContext = new SQLContext(sc)
+    import sqlContext.implicits._
+
+    //val people = sc.textFile("/home/nootrino/panama-papers/data/Officers.csv")
+    val people = sc.textFile("/home/nootrino/panama-papers/data/Officers.csv.clean")
+            .map(_.split(","))
+            .map(col => Person(col(0), col(1)))
+            .toDF()
+    people.registerTempTable("people")
+    
+    sqlContext.sql(
+        """
+        SELECT name, COUNT(*) AS times
+        FROM people 
+        GROUP BY name 
+        ORDER BY times DESC
+        """
+        ).save("/tmp/names.csv", "com.databricks.spark.csv")
+
+  }
+
+  /*----------------------------------------------------------------------------*/
+  //                          Find  Officers
+  /*----------------------------------------------------------------------------*/
+  def find_officers() {
 
     println("********** Officers Analysis ************")
 
@@ -63,22 +90,6 @@ object PanamaGraph {
 
     // retrieves multiple columns at once into a Map[String, T]
     person.map(_.getValuesMap[Any](List("name", "info"))).collect().foreach(println)
-
-    //people.registerTempTable("people")
-
-    //people.registerTempTable("people")
-    //val kevins = sqlContext.sql("SELECT name FROM people WHERE name LIKE '%kevin%'")
-    //kevins.map(t => "Name: " + t(0)).collect().foreach(println) 
-
-
-    //val df1 = sqlContext.read.format("com.databricks.spark.avro").load(avroFile).registerTempTable("officers")
-    //sqlContext.sql(
-    //    """
-    //    SELECT name, COUNT(*) AS times
-    //    FROM officers
-    //    GROUP BY name 
-    //    ORDER BY times DESC
-    //    """).save("/output/names.csv", "com.databricks.spark.csv")
 
   }
 
