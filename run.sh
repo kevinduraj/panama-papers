@@ -6,12 +6,11 @@ sbt package
 
 #----------------------------------------------------------#
 spark-submit             \
-  --packages com.databricks:spark-avro_2.10:2.0.1,com.databricks:spark-csv_2.10:1.4.0 \
+  --packages com.databricks:spark-csv_2.10:1.4.0 \
   --class "PanamaGraph"  \
   --master local[4]      \
   --driver-memory 4G     \
   --executor-memory 4G   \
-  target/scala-2.10/panamagraph_2.10-1.0.jar  \ 
-  data/Officers.csv                              
+  target/scala-2.10/panamagraph_2.10-1.0.jar  
 
 #----------------------------------------------------------#
