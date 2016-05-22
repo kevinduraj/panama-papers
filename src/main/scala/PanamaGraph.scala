@@ -47,12 +47,11 @@ object PanamaGraph {
         FROM people 
         GROUP BY name 
         ORDER BY times DESC
-        LIMIT 20
         """
     
 
     val results = sqlContext.sql( SQL )
-    results.map(t => "name=" + t(0) + "\ncount=" + t(1) + "\n" ).collect().foreach(println) 
+    results.map(t => "name=" + t(0) + "\ncount=" + t(1) + "\n" ).collect().take(20).foreach(println) 
 
     // Save results int other formats
     // sqlContext.sql( SQL ).save("/tmp/count1", "com.databricks.spark.csv")
