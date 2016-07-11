@@ -1,4 +1,4 @@
-Pananma Papers Data Analysis
+Panama Papers Data Analysis
 ============================
 
 
